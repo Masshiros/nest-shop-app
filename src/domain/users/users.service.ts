@@ -42,7 +42,7 @@ export class UsersService {
     if (!user) {
       throw new NotFoundException('User not found');
     }
-    return user;
+    return await this.usersRepository.save(user);
   }
 
   async remove(id: number) {
